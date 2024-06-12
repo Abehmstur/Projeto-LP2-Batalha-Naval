@@ -6,7 +6,7 @@ public class Computador extends Jogador{
 	private Random random;
 
 	public Computador(String nome, int tamanhoTabuleiro) {
-		super(nome, tamanhoTabuleiro);
+		super(tamanhoTabuleiro);
 		this.random = new Random();
 	}
 	

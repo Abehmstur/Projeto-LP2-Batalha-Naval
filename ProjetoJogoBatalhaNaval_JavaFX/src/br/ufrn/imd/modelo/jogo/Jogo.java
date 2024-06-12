@@ -28,14 +28,26 @@ public class Jogo {
     public Jogo(String j1_nome, String j2_nome, MODO_DE_JOGO modoDeJogo, DIFICULDADE dificuldade) {
         this.modoDeJogo = modoDeJogo;
         this.dificuldade = dificuldade;
-
-        this.jogador1 = new Jogador(j1_nome, TAM);
+        
+        this.jogador1 = new Jogador(TAM);
+        
+        if(j1_nome != null) {
+        	this.jogador1.setNome(j1_nome);
+        }else {
+        	this.jogador1.setNome("Jogador 1 Default");
+        }
 
         if (this.modoDeJogo == MODO_DE_JOGO.VS_COMPUTADOR) {
             this.jogador2 = new Computador("Computador", TAM);
         } else {
-            this.jogador2 = new Jogador(j2_nome, TAM);
-            this.jogador2.setNome(j2_nome);
+        	
+            this.jogador2 = new Jogador(TAM);
+            
+            if(j2_nome != null) {
+            	this.jogador2.setNome(j2_nome);
+            }else {
+            	this.jogador2.setNome("Jogador 2 Default");
+            }
         }
         
         // Ajuste na ligação dos tabuleiros

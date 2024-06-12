@@ -17,31 +17,34 @@ import javafx.scene.layout.GridPane;
 import br.imd.Tela;
 
 public class TelasControler {
-	private JogoControler jogoControler;
-	private Jogo jogo;
-	
     @FXML
-    private BorderPane painelPrincipal;
-
+    private TextField nomeJogadorUm;
     @FXML
-    private MenuItem playMenuItem;
+    private TextField nomeJogadorDois;
 
-    @FXML
-    private MenuItem regrasMenuItem;
-    
-    //inputs
-    @FXML private TextField nomeJogadorUm;
-    @FXML private TextField nomeJogadorDois;
-    
-
-  //jogador da esquerda
+    // jogador da esquerda
     private GridPane tabuleiroJogadorUm;
-    //jogador da direito
+    // jogador da direita
     private GridPane tabuleiroOponente;
-    
+
+    private Jogo jogo;
+
     public void iniciar(ActionEvent e) throws IOException {
-    	jogo = new Jogo("Jogador_1", "Jogador_2", MODO_DE_JOGO.VS_HUMANO, DIFICULDADE.FACIL);
-    	Tela.paneEntradaDeDados();
+        String nome1 = nomeJogadorUm.getText();
+        String nome2 = nomeJogadorDois.getText();
+        
+        if(nome1.equals("")) {
+        	nome1 = null;
+        }
+        
+        if(nome2.equals("")) {
+        	nome2 = null;
+        }
+        
+        jogo = new Jogo(nome1, nome2, MODO_DE_JOGO.VS_HUMANO, DIFICULDADE.FACIL);
+        Tela.initJogo();
+        System.out.println(jogo.getJogador1().getNome());
+        System.out.println(jogo.getJogador2().getNome());
     }
     
     public void mostrarRegras(ActionEvent e) {

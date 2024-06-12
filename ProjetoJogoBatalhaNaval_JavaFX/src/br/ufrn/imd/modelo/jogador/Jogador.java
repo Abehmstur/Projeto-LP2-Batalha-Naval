@@ -4,12 +4,11 @@ import br.ufrn.imd.modelo.interfaces.IJogador;
 import br.ufrn.imd.modelo.jogo.Tabuleiro;
 
 public class Jogador implements IJogador {
-    private String nome;
+    private String nome = "Jogador Default";
     private Tabuleiro meuTabuleiro;
     private Tabuleiro tabuleiroDoInimigo;
 
-    public Jogador(String nome, int tamanhoTabuleiro) {
-        this.nome = nome;
+    public Jogador(int tamanhoTabuleiro) {
         this.meuTabuleiro = new Tabuleiro(tamanhoTabuleiro);
     }
 

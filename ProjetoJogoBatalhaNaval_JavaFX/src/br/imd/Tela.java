@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -19,6 +20,7 @@ public class Tela extends Application{
 			try {
 				stage = primaryStage;
 				stage.setTitle("Batalha Naval - THE GAME");
+//				stage.getIcons().add(new Image("/br/ufrn/imd/visao/img/navioExemplo.png"));
 				initPrincipal();
 				stage.show();
 			} catch (Exception e) {
@@ -26,7 +28,7 @@ public class Tela extends Application{
 			}
 		}
 
-	    // ==> Tela de Login (Principal)			
+	    // ==> Tela Inicial (Principal)			
 		private void initPrincipal() throws IOException {
 			FXMLLoader loader =  new FXMLLoader();
 			loader.setLocation(br.imd.Tela.class.getResource("/br/ufrn/imd/visao/Principal.fxml"));
@@ -37,13 +39,24 @@ public class Tela extends Application{
 		}
 		
 	    // ==> Tela de Entrada de Dados dos Jogadores
-	    public static void paneEntradaDeDados() throws IOException{
+	    public static void initEntradaDeDados() throws IOException{
 	        FXMLLoader loader = new FXMLLoader();
 	        loader.setLocation(br.imd.Tela.class.getResource("/br/ufrn/imd/visao/entradaDoUsuario.fxml"));
 	        Parent root = (Parent) loader.load();
 
 	        Scene cena = new Scene(root);
 	        stage.setTitle("Entradas dos Jogadores");
+	        stage.setScene(cena);
+	    }
+	    
+	    // ==> Tela de Início do jogo
+	    public static void initJogo() throws IOException{
+	    	FXMLLoader loader = new FXMLLoader();
+	        loader.setLocation(br.imd.Tela.class.getResource("/br/ufrn/imd/visao/JogoView.fxml"));
+	        Parent root = (Parent) loader.load();
+
+	        Scene cena = new Scene(root);
+	        stage.setTitle("Batalha Naval");
 	        stage.setScene(cena);
 	    }
 
