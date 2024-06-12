@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controler.TelasControler">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Jogar">
+            <items>
+              <MenuItem id="playMenuItem" mnemonicParsing="false" onAction="#iniciar" text="Play" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Dificuldade">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Fácil" />
+                  <MenuItem mnemonicParsing="false" text="Médio" />
+                  <MenuItem mnemonicParsing="false" text="Difícil" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Sobre">
+            <items>
+              <MenuItem id="regrasMenuItem" mnemonicParsing="false" onAction="#mostrarRegras" text="Regras" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
