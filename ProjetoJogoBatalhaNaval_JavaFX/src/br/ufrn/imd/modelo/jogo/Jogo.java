@@ -10,10 +10,29 @@ public class Jogo {
     private boolean turnoDoJogadorUm;
     private MODO_DE_JOGO modoDeJogo;
     private DIFICULDADE dificuldade;
-    // Tamanho padrão do tabuleiro
     public static final int TAM = 10;
 
-    public enum MODO_DE_JOGO {
+    public Computador getComputador() {
+		return computador;
+	}
+
+	public void setComputador(Computador computador) {
+		this.computador = computador;
+	}
+
+	public boolean isTurnoDoJogadorUm() {
+		return turnoDoJogadorUm;
+	}
+
+	public void setTurnoDoJogadorUm(boolean turnoDoJogadorUm) {
+		this.turnoDoJogadorUm = turnoDoJogadorUm;
+	}
+
+	public int getTam() {
+		return TAM;
+	}
+
+	public enum MODO_DE_JOGO {
         VS_HUMANO,
         VS_COMPUTADOR,
         SOLO;
@@ -50,7 +69,6 @@ public class Jogo {
             }
         }
         
-        // Ajuste na ligação dos tabuleiros
         jogador1.setTabuleiroDoInimigo(jogador2.getMeuTabuleiro());
         jogador2.setTabuleiroDoInimigo(jogador1.getMeuTabuleiro());
         

@@ -26,7 +26,7 @@ public class Mar {
 		return isAtacado;
 	}
 	
-	public void ataque() {
+	public void ataque(){
 		this.isAtacado = true;
 		if(temBarco) {
 			barco.acertou();
@@ -44,6 +44,13 @@ public class Mar {
 	public void setTemBarco(boolean temBarco) {
 		this.temBarco = temBarco;
 	}
+	
+    public String getBarcoTipo() {
+        if (isTemBarco()) {
+            return barco.getNome().substring(0, 1).toUpperCase(); 
+        }
+        return "~"; 
+    }
 	
 //	para testes em console
     @Override

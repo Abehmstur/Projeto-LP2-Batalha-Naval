@@ -2,13 +2,11 @@ package br.ufrn.imd.modelo.jogo;
 
 import java.util.ArrayList;
 
-
+import br.ufrn.imd.dao.BarcosDAO;
 import br.ufrn.imd.modelo.barco.Barco;
-
 
 public class Tabuleiro {
 	private Mar[][] celulaDoMar;
-//	private String[][] teste;
 	private int tamanho = 0;
 	
 	public Tabuleiro(int tamanho) {
@@ -21,6 +19,7 @@ public class Tabuleiro {
 //				teste[i][j] = "~";
 			}
 		}
+		
 	}
 	
 	public boolean colocarBarco(Barco b, int x, int y, boolean direcao, ArrayList<Barco> barcosJaAdicionados) {
@@ -56,7 +55,7 @@ public class Tabuleiro {
 	}
 	
 	
-	public boolean levarAtaque(int x, int y) {
+	public boolean levarAtaque(int x, int y){
 		celulaDoMar[x][y].ataque();
 		return celulaDoMar[x][y].isTemBarco();
 	}
@@ -87,19 +86,4 @@ public class Tabuleiro {
 	public void setTamanho(int tamanho) {
 		this.tamanho = tamanho;
 	}
-	
-//    public void imprimirTabuleiro() {
-//        for (int i = 0; i < tamanho; i++) {
-//            for (int j = 0; j < tamanho; j++) {
-//                System.out.print(teste[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
-//    }
-//	
-//	public static void main(String[] args) {
-//		Tabuleiro t = new Tabuleiro(10);
-//        t.imprimirTabuleiro();
-//	}
-
 }

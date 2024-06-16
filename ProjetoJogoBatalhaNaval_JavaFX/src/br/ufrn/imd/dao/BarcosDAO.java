@@ -23,7 +23,7 @@ public class BarcosDAO {
         return bDao;
     }
 
-    public void inicializarNavios(Jogador jogador) {
+    public void inicializarBarcos(Jogador jogador) {
         Random random = new Random();
         ArrayList<Barco> barcosAdicionadosNoTabuleiro;
         barcosAdicionadosNoTabuleiro = new ArrayList<>();
@@ -32,7 +32,7 @@ public class BarcosDAO {
             new Submarino(),
             new Fragata(),
             new Corverta(),
-            new Pesqueiro() //"melhoria trazer efeito de dano..."
+//            new Pesqueiro() //"melhoria trazer efeito de dano..."
         };
 
         for (Barco barco : barcos) {

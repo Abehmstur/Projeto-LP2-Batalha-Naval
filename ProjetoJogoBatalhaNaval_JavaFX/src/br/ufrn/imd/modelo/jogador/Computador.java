@@ -7,6 +7,7 @@ public class Computador extends Jogador{
 
 	public Computador(String nome, int tamanhoTabuleiro) {
 		super(tamanhoTabuleiro);
+		this.nome = nome;
 		this.random = new Random();
 	}
 	
@@ -24,9 +25,7 @@ public class Computador extends Jogador{
   				if(acertou) {
 					atacar();
 				}
-
 */				
-				System.out.println("teste, acertou em: " + x+ " - "+ y);
 			}
 		}
 	}

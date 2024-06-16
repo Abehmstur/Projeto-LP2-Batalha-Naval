@@ -10,7 +10,7 @@ public abstract class Barco {
 	protected ESTADO estado;
 	protected int quantidadeMaximaDeBarcos;
 	
-	protected enum ESTADO {ZERO_DANO, DANIFICADO, AFUNDADO};
+	public enum ESTADO {ZERO_DANO, DANIFICADO, AFUNDADO};
 		
 	public String getNome() {
 		return nome;
