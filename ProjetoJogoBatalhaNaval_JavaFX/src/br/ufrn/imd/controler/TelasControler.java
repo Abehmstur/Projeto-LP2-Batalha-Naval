@@ -2,7 +2,6 @@ package br.ufrn.imd.controler;
 
 import br.imd.Tela;
 import br.imd.tratamentodeerros.TelaException;
-import br.ufrn.imd.dao.BarcosDAO;
 import br.ufrn.imd.modelo.jogador.Jogador;
 import br.ufrn.imd.modelo.jogo.Jogo;
 import br.ufrn.imd.modelo.jogo.Tabuleiro;
@@ -15,6 +14,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
@@ -33,25 +36,31 @@ public class TelasControler extends GridPane {
     	this.jogo = new Jogo("ELON", "MARK", Jogo.MODO_DE_JOGO.VS_HUMANO, Jogo.DIFICULDADE.FACIL);
         this.jogador = jogo.getJogador1();
     }
-
-    public static GridPane criarTabuleiro(Tabuleiro tabuleiro, boolean jogadorHumano, Jogo jogo) {
-    	
-    	
-        GridPane gridTabuleiro = new GridPane();
+    
+    private BackgroundImage addImgBackgroud(Image i) {
+    	return new BackgroundImage(i, null, null, null, null);
+    }
+    
+    @SuppressWarnings("exports")
+	public GridPane criarTabuleiro(Tabuleiro tabuleiro, boolean jogadorHumano, Jogo jogo) {
+        
+    	GridPane gridTabuleiro = new GridPane();
         gridTabuleiro.setAlignment(Pos.CENTER);
         gridTabuleiro.setHgap(1);
         gridTabuleiro.setVgap(1);
-                      
-        BarcosDAO.getInstance().inicializarBarcos(jogo.getJogador1());
-        BarcosDAO.getInstance().inicializarBarcos(jogo.getJogador2());
-        
+                     
         int tamanho = Jogo.TAM;
         
+        Image imagemMar = new Image(getClass().getResourceAsStream("/br/ufrn/imd/visao/img/mar.png"));
+        Image explosao = new Image(getClass().getResourceAsStream("/br/ufrn/imd/visao/img/explosao/expl_04_0020-2.png"));
+                       
         for (int i = 0; i < tamanho; i++) {
             for (int j = 0; j < tamanho; j++) {
                 Button celula = new Button("~");
-                celula.setMinWidth(30);
-                celula.setMinHeight(30);
+                celula.setBackground(new Background(addImgBackgroud(imagemMar)));
+                
+                celula.setMinWidth(40);
+                celula.setMinHeight(40);
                 
                 if (jogadorHumano) {
                     int x = i;
@@ -72,8 +81,9 @@ public class TelasControler extends GridPane {
                             }
                             exibirMensagem(gridTabuleiro, "Ataque do jogador: " + jogo.turnoDoJogadorUm().getNome() + " acertou o alvo!");
                         } else {
-                            celula.setDisable(true);
-                            celula.setText("~");
+//                            celula.setDisable(true);
+//                            celula.setText("");
+                            celula.setBackground(new Background(addImgBackgroud(explosao)));
                             exibirMensagem(gridTabuleiro, "Ataque do jogador: " + jogo.turnoDoJogadorUm().getNome() + " errou!");
                         }
                         

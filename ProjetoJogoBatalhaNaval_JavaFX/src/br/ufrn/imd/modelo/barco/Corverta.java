@@ -6,7 +6,7 @@ public class Corverta extends Barco{
 	public Corverta() {
 		this.nome = "Corverta";
 		this.tamanho = 2;
-		this.quantidadeMaximaDeBarcos = 4;
+		this.quantidadeMaximaDeBarcos = 1;
 		this.estado = ESTADO.ZERO_DANO;
 	}
 
