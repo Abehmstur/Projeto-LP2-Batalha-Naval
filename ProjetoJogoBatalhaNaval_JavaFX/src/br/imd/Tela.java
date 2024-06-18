@@ -75,6 +75,7 @@ public class Tela extends Application {
     /**
      * Método que inicia os tabuleiros de cada jogador a partir do controler, cria dois tabuleiros, instancia os barcos, cria um novo grid
      * e adiciona os tabuleiros ao grid por fim define a nova cena.
+     * @throws TelaException exceções relacionados ao carregamento de tela.
      */
 	public static void initTabuleiro() throws TelaException {
 		try {

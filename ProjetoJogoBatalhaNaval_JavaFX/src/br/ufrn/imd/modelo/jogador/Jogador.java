@@ -27,7 +27,7 @@ public class Jogador implements IJogador {
 
     /**
      * Construtor que inicializa o jogador com um tabuleiro de tamanho especificado.
-     * (!) Melhoria => a ideia é pegar como entrada a dificuldade do jogo e mudar o tamanho do tabuleiro.
+     * (!) Melhoria: a ideia é pegar como entrada a dificuldade do jogo e mudar o tamanho do tabuleiro.
      * @param tamanhoTabuleiro O tamanho do tabuleiro do jogador.
      */
     public Jogador(int tamanhoTabuleiro) {

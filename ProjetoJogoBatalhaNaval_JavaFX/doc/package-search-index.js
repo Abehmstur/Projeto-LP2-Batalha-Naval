@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"br.imd"},{"l":"br.imd.tratamentodeerros"},{"l":"br.ufrn.imd.controler"},{"l":"br.ufrn.imd.dao"},{"l":"br.ufrn.imd.modelo.barco"},{"l":"br.ufrn.imd.modelo.interfaces"},{"l":"br.ufrn.imd.modelo.jogador"},{"l":"br.ufrn.imd.modelo.jogo"},{"l":"br.ufrn.imd.visao"}]

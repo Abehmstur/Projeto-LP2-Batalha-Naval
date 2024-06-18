@@ -16,7 +16,6 @@ public class Computador extends Jogador {
 
     /**
      * Construtor que inicializa o jogador computador com um nome e tamanho de tabuleiro.
-     * @param nome O nome do jogador computador.
      * @param tamanhoTabuleiro O tamanho do tabuleiro do jogador.
      */
     public Computador(int tamanhoTabuleiro) {

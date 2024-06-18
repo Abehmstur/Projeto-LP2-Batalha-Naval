@@ -1,0 +1,9 @@
+br.imd
+br.imd.tratamentodeerros
+br.ufrn.imd.controler
+br.ufrn.imd.dao
+br.ufrn.imd.modelo.barco
+br.ufrn.imd.modelo.interfaces
+br.ufrn.imd.modelo.jogador
+br.ufrn.imd.modelo.jogo
+br.ufrn.imd.visao

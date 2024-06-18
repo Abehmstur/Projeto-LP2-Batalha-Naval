@@ -28,7 +28,6 @@ public class Corverta extends Barco {
 
     /**
      * Simula um ataque sofrido pela Corveta.
-     * @throws Exception Se a Corveta já estiver afundada.
      */
     @Override
     public void acertou(){
