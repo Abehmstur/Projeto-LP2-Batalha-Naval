@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"br.ufrn.imd.modelo.interfaces","c":"IJogador","l":"atacar(int, int)","u":"atacar(int,int)"},{"p":"br.ufrn.imd.modelo.interfaces","c":"IJogador","l":"pontuacao()"}];updateSearchResults();

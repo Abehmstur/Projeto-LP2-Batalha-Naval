@@ -1,38 +1,68 @@
 package br.ufrn.imd.modelo.barco;
 
-import java.util.Objects;
-
+/**
+ * Classe abstrata Barco representa uma embarcação genérica 
+ * no jogo batalha naval. 
+ * 
+ * @author Matheus Barros Medeiros - github: Abehmstur
+ * @since jdk-11.0.22
+ */
 public abstract class Barco {
+	
+  /**
+   * Nome do Barco.
+   */
 	protected String nome;
+	
+  /**
+   * Tamanho do Barco.
+   */
 	protected int tamanho;
+	
+  /**
+   * Posição X do Barco no mapa.
+   */
 	protected int posicaoX;
+	
+  /**
+   * Posição Y do Barco no mapa.
+   */
 	protected int posicaoY;
+	
+  /**
+   * Estado atual do Barco (ZERO_DANO, DANIFICADO, AFUNDADO).
+   */
 	protected ESTADO estado;
+	
+  /**
+   * Quantidade máxima de Barcos que podem ser colocados no tabuleiro.
+   * Pendente implementar quatidadeMaximaDeBarcos de forma dinâmica com entradas do usuário.
+   */
 	protected int quantidadeMaximaDeBarcos;
 	
-	public enum ESTADO {ZERO_DANO, DANIFICADO, AFUNDADO};
-		
+  /**
+   * Enumeração representando os estados de um Barco: ZERO_DANO, DANIFICADO, AFUNDADO;.
+   */
+	public enum ESTADO {
+	  ZERO_DANO, DANIFICADO, AFUNDADO;
+	}
+	
+  /**
+   * Método abstrato que simula um ataque sofrido pelo Barco. 
+   * 
+   */
+	public abstract void acertou();
+	
+  /**
+   * Método abstrato que verifica se o Barco está no estado AFUNDADO. 
+   * @return true se o Barco estiver afundado, false caso contrário.
+   */	 
+	public abstract boolean isAfundado();
+
 	public String getNome() {
 		return nome;
 	}
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(nome);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Barco other = (Barco) obj;
-		return Objects.equals(nome, other.nome);
-	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -76,9 +106,5 @@ public abstract class Barco {
 	public void setQuantidadeMaximaDeBarcos(int quantidadeMaximaDeBarcos) {
 		this.quantidadeMaximaDeBarcos = quantidadeMaximaDeBarcos;
 	}
-	
-	public abstract void acertou();
-	public abstract boolean isAfundado();
-	
-
+  
 }

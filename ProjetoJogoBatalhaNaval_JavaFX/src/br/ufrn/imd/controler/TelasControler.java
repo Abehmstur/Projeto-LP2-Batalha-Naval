@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.GridPane;
@@ -37,11 +36,22 @@ public class TelasControler extends GridPane {
         this.jogador = jogo.getJogador1();
     }
     
+    /**
+     * Método que adiciona uma imagem de fundo de um backgroudImage.
+     * @param imagem Imagem a ser utilizada como fundo.
+     * @return Objeto BackgroundImage contendo a imagem.
+     */
     private BackgroundImage addImgBackgroud(Image i) {
     	return new BackgroundImage(i, null, null, null, null);
     }
     
-    @SuppressWarnings("exports")
+    /**
+     * Método que cria o grid do tabuleiro do jogo.
+     * @param tabuleiro Tabuleiro do jogo.
+     * @param jogadorHumano Indica se o tabuleiro é do jogador humano. (!) Melhorias: trazer as acoes do jogador computador.
+     * @param jogo em andamento.
+     * @return GridPane GridPane contendo o tabuleiro do jogo.
+     */
 	public GridPane criarTabuleiro(Tabuleiro tabuleiro, boolean jogadorHumano, Jogo jogo) {
         
     	GridPane gridTabuleiro = new GridPane();
@@ -81,8 +91,9 @@ public class TelasControler extends GridPane {
                             }
                             exibirMensagem(gridTabuleiro, "Ataque do jogador: " + jogo.turnoDoJogadorUm().getNome() + " acertou o alvo!");
                         } else {
-//                            celula.setDisable(true);
-//                            celula.setText("");
+                            celula.setDisable(true);
+                            celula.setOpacity(0.8);
+                            celula.setText("");
                             celula.setBackground(new Background(addImgBackgroud(explosao)));
                             exibirMensagem(gridTabuleiro, "Ataque do jogador: " + jogo.turnoDoJogadorUm().getNome() + " errou!");
                         }
@@ -106,6 +117,11 @@ public class TelasControler extends GridPane {
         return gridTabuleiro;
     }
     
+	/**
+	 * Método que exibe uma mensagem temporária no grid do tabuleiro.
+	 * @param gridTabuleiro GridPane do tabuleiro onde a mensagem será exibida.
+	 * @param mensagem Texto da mensagem a ser exibida.
+	 */
     public static void exibirMensagem(GridPane gridTabuleiro, String mensagem) {       
         if (mensagemBox != null) {
             gridTabuleiro.getChildren().remove(mensagemBox);
@@ -119,16 +135,55 @@ public class TelasControler extends GridPane {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event -> gridTabuleiro.getChildren().remove(mensagemBox));
         pause.play();
-        
-//        gridTabuleiro.getChildren().remove(mensagemBox);
     }
 
+    /**
+     * Método que exibe uma janela de mensagem informando o vencedor do jogo.
+     * @param jogador Jogador vencedor da partida.
+     */
     public static void MensagemFimDoJogo(Jogador jogador) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("FIM!!!");
-        alert.setHeaderText("Detalhes");
         alert.setContentText("Jogo Finalizado, o jogador: " + jogador.getNome() + " é o vencedor!!!");
         alert.showAndWait();
+    }
+    
+    /**
+     * Método acionado pelo evento do botão "Regras" na tela principal.
+     * @param e Evento do botão.
+     */
+    public void mostrarRegras(ActionEvent e) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Regras");
+        alert.setHeaderText("Regras do Jogo");
+        alert.setContentText("Batalha naval é um jogo de tabuleiro de dois jogadores, no qual os jogadores têm de adivinhar"
+            + " em quais quadrados estão os navios do oponente. Porém, várias versões foram propostas no"
+            + " decorrer dos anos. A parte gráfica do jogo evoluiu consideravelmente, pois o jogo foi"
+            + " originalmente jogado com lápis e papel. Seu objetivo é derrubar os barcos do oponente"
+            + " adversário, e ganha quem derrubar todos os navios adversários primeiro.");
+        alert.showAndWait();
+    }
+    
+    /**
+     * Método acionado pelo evento do botão "Iniciar" e começa o jogo.
+     * @param e Evento do botão.
+     * @throws TelaException Exceção lançada caso ocorra algum erro.
+     */
+    public void iniciar(ActionEvent e) throws TelaException {
+        
+//    	(!) pendente pegar os nomes da FXML do front e atualizar no jogo.
+        String nome1 = nomeJogadorUm.getText();
+        String nome2 = nomeJogadorDois.getText();
+        
+        if(nome1.equals("")) {
+            nome1 = null;
+        }
+        
+        if(nome2.equals("")) {
+            nome2 = null;
+        }
+        
+        Tela.initTabuleiro();
     }
     
     public Jogo getJogo() {
@@ -161,33 +216,5 @@ public class TelasControler extends GridPane {
 
     public void setOponenteGrid(GridPane oponenteGrid) {
         this.oponenteGrid = oponenteGrid;
-    }
-    
-    public void mostrarRegras(ActionEvent e) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Regras");
-        alert.setHeaderText("Regras do Jogo");
-        alert.setContentText("Batalha naval é um jogo de tabuleiro de dois jogadores, no qual os jogadores têm de adivinhar"
-            + " em quais quadrados estão os navios do oponente. Porém, várias versões foram propostas no"
-            + " decorrer dos anos. A parte gráfica do jogo evoluiu consideravelmente, pois o jogo foi"
-            + " originalmente jogado com lápis e papel. Seu objetivo é derrubar os barcos do oponente"
-            + " adversário, e ganha quem derrubar todos os navios adversários primeiro.");
-        alert.showAndWait();
-    }
-    
-    public void iniciar(ActionEvent e) throws TelaException {
-        
-        String nome1 = nomeJogadorUm.getText();
-        String nome2 = nomeJogadorDois.getText();
-        
-        if(nome1.equals("")) {
-            nome1 = null;
-        }
-        
-        if(nome2.equals("")) {
-            nome2 = null;
-        }
-        
-        Tela.initTabuleiro();
     }
 }

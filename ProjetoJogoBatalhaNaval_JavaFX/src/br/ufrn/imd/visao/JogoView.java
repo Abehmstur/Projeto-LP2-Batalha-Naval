@@ -11,8 +11,8 @@ public class JogoView {
 
 	public static void main(String[] args) {
         Jogo jogo = new Jogo("Jogador 1", "Jogador 2", Jogo.MODO_DE_JOGO.VS_HUMANO, Jogo.DIFICULDADE.FACIL);
-//        BarcosDAO.getInstance().inicializarNavios(jogo.getJogador1());
-//        BarcosDAO.getInstance().inicializarNavios(jogo.getJogador2());
+        BarcosDAO.getInstance().inicializarBarcos(jogo.getJogador1());
+        BarcosDAO.getInstance().inicializarBarcos(jogo.getJogador2());
 
         Scanner scanner = new Scanner(System.in);
 
