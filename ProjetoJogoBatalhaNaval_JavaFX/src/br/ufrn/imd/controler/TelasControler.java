@@ -21,16 +21,53 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
+/**
+ * Classe que gerencia e conecta a interce do jogo com as inteações do back-end. 
+ * @author Matheus Barros Medeiros - github: Abehmstur
+ * @since jdk-11.0.22
+ */
 public class TelasControler extends GridPane {
-    @FXML private TextField nomeJogadorUm;
-    @FXML private TextField nomeJogadorDois;
-    
+
+    /**
+     * Campo de texto para inserir o nome do jogador 1.
+     */
+    @FXML
+    private TextField nomeJogadorUm;
+
+    /**
+     * Campo de texto para inserir o nome do jogador 2.
+     */
+    @FXML
+    private TextField nomeJogadorDois;
+
+    /**
+     * Instância do jogo em andamento.
+     */
     private Jogo jogo;
+
+    /**
+     * Referência ao jogador atual.
+     */
     private Jogador jogador;
+
+    /**
+     * GridPane que representa o tabuleiro do jogador.
+     */
     private GridPane jogadorGrid;
+
+    /**
+     * GridPane que representa o tabuleiro do oponente.
+     */
     private GridPane oponenteGrid;
+
+    /**
+     * HBox que exibe mensagens na tela.
+     */
     private static HBox mensagemBox = null;
-    
+
+    /**
+     * Construtor padrão da classe.
+     */
     public TelasControler() {     
     	this.jogo = new Jogo("ELON", "MARK", Jogo.MODO_DE_JOGO.VS_HUMANO, Jogo.DIFICULDADE.FACIL);
         this.jogador = jogo.getJogador1();
