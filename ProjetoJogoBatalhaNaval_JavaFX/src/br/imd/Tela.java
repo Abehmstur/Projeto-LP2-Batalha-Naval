@@ -5,6 +5,7 @@ import java.io.IOException;
 import br.imd.tratamentodeerros.TelaException;
 import br.ufrn.imd.controler.TelasControler;
 import br.ufrn.imd.dao.BarcosDAO;
+import br.ufrn.imd.modelo.jogo.Tabuleiro;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -89,6 +90,26 @@ public class Tela extends Application {
 		    
 	        BarcosDAO.getInstance().inicializarBarcos(telaController.getJogo().getJogador1());
 	        BarcosDAO.getInstance().inicializarBarcos(telaController.getJogo().getJogador2());
+	        
+	        
+//	        colinha
+	        System.out.println("JOGADOR 1");
+            for (int i = 0; i < telaController.getJogo().getJogador1().getMeuTabuleiro().getTamanho(); i++) {
+                for (int j = 0; j < telaController.getJogo().getJogador1().getMeuTabuleiro().getTamanho(); j++) {
+                    System.out.print(telaController.getJogo().getJogador1().getMeuTabuleiro().getCelulaDoMar(i, j) + " ");
+                }
+                System.out.println();
+            }
+            
+//	        colinha
+	        System.out.println("JOGADOR 2");
+            for (int i = 0; i < telaController.getJogo().getJogador2().getMeuTabuleiro().getTamanho(); i++) {
+                for (int j = 0; j < telaController.getJogo().getJogador2().getMeuTabuleiro().getTamanho(); j++) {
+                    System.out.print(telaController.getJogo().getJogador2().getMeuTabuleiro().getCelulaDoMar(i, j) + " ");
+                }
+                System.out.println();
+            }
+	        
 		
 		    GridPane gridPane = new GridPane();
 		    BorderPane tituloPane = new BorderPane();

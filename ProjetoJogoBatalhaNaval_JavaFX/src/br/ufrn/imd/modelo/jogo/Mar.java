@@ -106,16 +106,16 @@ public class Mar {
      */
     @Override
     public String toString() {
-        if (isTemBarco() && isAtacado() && barco instanceof Destroyer) {
+        if (isTemBarco() && barco instanceof Destroyer) {
             return "D";
         }
-        else if(isTemBarco() && isAtacado() && barco instanceof Corverta) {
+        else if(isTemBarco() && barco instanceof Corverta) {
         	return "C";
-        }else if(isTemBarco() && isAtacado() && barco instanceof Fragata) {
+        }else if(isTemBarco()&& barco instanceof Fragata) {
         	return "F";
-        }else if(isTemBarco() && isAtacado() && barco instanceof Submarino) {
+        }else if(isTemBarco()&& barco instanceof Submarino) {
         	return "S";
-        }else if(isTemBarco() && isAtacado() && barco instanceof Pesqueiro) {
+        }else if(isTemBarco()&& barco instanceof Pesqueiro) {
         	return "P";
         } else if (isAtacado()) {
             return "*";
